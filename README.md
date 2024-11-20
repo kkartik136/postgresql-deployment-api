@@ -11,10 +11,7 @@ This API automates the setup of a PostgreSQL primary-read-replica architecture o
     - [Create Inventory](#create-inventory)
     - [Health Check](#health-check)
 4. [Example Requests](#example-requests)
-5. [Error Handling](#error-handling)
-6. [Future Use Cases](#future-use-cases)
-7. [Assumptions](#assumptions)
-8. [Contributing](#contributing)
+5. [Future Use Cases](#future-use-cases)
 
 ## Prerequisites
 
@@ -168,4 +165,43 @@ curl -X POST http://127.0.0.1:5000/create-inventory \
 curl -X POST http://127.0.0.1:5000/configure-postgresql
 ```
 
-## Error Handling
+## Future Use Cases
+
+The current implementation of this API focuses on automating the setup of PostgreSQL primary-read-replica architecture using **Terraform** and **Ansible**. However, there are several potential future use cases and features that can further enhance the API's capabilities.
+
+### 1. Multi-Region Support
+
+In the future, the API can be extended to support multi-region PostgreSQL deployments. This would allow users to provision primary and replica PostgreSQL instances across multiple AWS regions, improving availability, fault tolerance, and reducing latency for users in different geographical locations.
+
+#### Possible Enhancements:
+- Allow users to specify the desired AWS regions for the primary and replica instances.
+- Implement cross-region replication to ensure that the replica instances can sync with the primary across regions.
+
+### 2. Enhanced Security Features
+
+Security is always a top priority in production environments. Future enhancements could include features that help automate secure setups, such as setting up proper IAM roles, managing database encryption.
+
+#### Possible Enhancements:
+- Implement automatic creation of IAM roles and policies to securely grant permissions to EC2 instances.
+- Integrate the API with **AWS Secrets Manager** to securely manage PostgreSQL credentials and reduce the risk of exposed credentials in configuration files.
+
+### 3. Scaling and Auto-Scaling
+
+To handle varying workloads, future updates could include the ability to scale the PostgreSQL setup based on traffic patterns. Auto-scaling the number of replica instances based on load or performance metrics could significantly improve the API's usability for large-scale applications.
+
+#### Possible Enhancements:
+- Integrate **AWS Auto Scaling** for PostgreSQL replicas, automatically adding or removing replicas based on resource utilization.
+- Integrate with **CloudWatch** or other monitoring tools to collect and analyze metrics like CPU, memory, and disk usage to trigger auto-scaling actions.
+
+### 4. Backup and Disaster Recovery
+
+Ensuring that the PostgreSQL setup has proper backup and disaster recovery mechanisms is crucial for production environments. Future versions of the API can integrate automated backups and a robust recovery process for the PostgreSQL instances.
+
+#### Possible Enhancements:
+- Automate the creation of **AWS RDS snapshots** or **PostgreSQL backups** at regular intervals.
+- Implement backup strategies, such as daily, weekly, or on-demand backups, and allow the user to configure retention policies.
+- Integrate **AWS S3** for backup storage and retrieval, ensuring that backups are safely stored and can be restored easily.
+
+
+
+
