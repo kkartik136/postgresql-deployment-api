@@ -146,3 +146,26 @@ This endpoint triggers Ansible to configure PostgreSQL on the EC2 instances that
 }
 ```
 
+## Example Requests
+#### Generate Code:
+```json
+curl -X POST http://127.0.0.1:5000/generate-code \
+  -H "Content-Type: application/json" \
+  -d '{"postgresql_version": "17", "instance_type": "t2.medium", "num_replicas": 2, "max_connections": "200", "shared_buffers": "256MB"}'
+```
+#### Provision Infra or Apply Terraform:
+```json
+curl -X POST http://127.0.0.1:5000/apply-infrastructure
+```
+#### Generate Inventory:
+```json
+curl -X POST http://127.0.0.1:5000/create-inventory \
+  -H "Content-Type: application/json" \
+  -d '{"key-path": "/path/to/your/private-key.pem", "user": "ubuntu"}'
+```
+#### Configure PostgresSQL:
+```json
+curl -X POST http://127.0.0.1:5000/configure-postgresql
+```
+
+## Error Handling
