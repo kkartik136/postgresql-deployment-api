@@ -5,11 +5,6 @@ This API automates the setup of a PostgreSQL primary-read-replica architecture o
 1. [Prerequisites](#prerequisites)
 2. [Setup and Installation](#setup-and-installation)
 3. [API Endpoints](#api-endpoints)
-    - [Generate Terraform and Ansible Code](#generate-terraform-and-ansible-code)
-    - [Apply Infrastructure](#apply-infrastructure)
-    - [Configure PostgreSQL](#configure-postgresql)
-    - [Create Inventory](#create-inventory)
-    - [Health Check](#health-check)
 4. [Example Requests](#example-requests)
 5. [Future Use Cases](#future-use-cases)
 
